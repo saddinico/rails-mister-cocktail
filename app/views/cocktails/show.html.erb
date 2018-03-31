@@ -1,26 +1,31 @@
-<%= @cocktail.name %>
 
-<ul>
-  <% @doses.each do |dose| %>
-    <li>
-      <%= dose.description %> of <%= dose.ingredient.name %>
-      <%= link_to 'delete', cocktail_dose_path(@cocktail,dose), method: :delete,
-      data: { confirm: "Are you sure?" }  %>
-    </li>
-  <% end %>
-</ul>
+<div class="wrapper">
+  <%= @cocktail.name %>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description, error: 'description is mandatory, please specify one' %>
-  <%= f.association :ingredient, error: 'ingredient is mandatory, please specify one' %>
-  <%= f.submit 'add a dose'%>
-  <% if @dose.errors.any? %>
-    <ul>
-      <%  @dose.errors.full_messages.each do |error_message| %>
-      <li><%= error_message  %></li>
-      <% end %>
+  <ul>
+    <% @doses.each do |dose| %>
+      <li>
+        <%= dose.description %> of <%= dose.ingredient.name %>
+        <%= link_to 'delete', cocktail_dose_path(@cocktail,dose), method: :delete,
+        data: { confirm: "Are you sure?" }  %>
+      </li>
     <% end %>
-    </ul>
-<% end %>
+  </ul>
 
-<%= link_to 'back to main page', cocktails_path %>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description, error: 'description is mandatory, please specify one' %>
+    <%= f.association :ingredient, error: 'ingredient is mandatory, please specify one' %>
+    <%= f.submit 'add a dose', class: "btn btn-primary"%>
+    <% if @dose.errors.any? %>
+      <ul>
+        <%  @dose.errors.full_messages.each do |error_message| %>
+        <li><%= error_message  %></li>
+        <% end %>
+      <% end %>
+      </ul>
+  <% end %>
+
+  <%= link_to 'delete cocktail', cocktail_path(@cocktail), method: :delete,
+  data: { confirm: "Are you sure?" } %>
+  <%= link_to 'back to main page', cocktails_path %>
+</div>
