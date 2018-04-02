@@ -1,4 +1,11 @@
 <%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit 'add a cocktail'%>
+  <%= f.label :name, label: 'Name your cocktail', label_html: { class: 'cocktail-name' } %>
+  <br>
+  <br>
+  <%= f.input_field :name %>
+  <br>
+  <br>
+  <%= button_tag(type: 'submit', class: "btn btn-primary-outline") do %>
+  create
+  <% end %>
 <% end %>

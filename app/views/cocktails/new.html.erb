@@ -1,3 +1,12 @@
-<%= render 'form' %>
 
-<%= link_to 'back to main page', cocktails_path %>
+
+<div class="create-form" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1516986738737-0d33f4d236bd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ae803e789a4ec2b51fbf3b88a321bc1&auto=format&fit=crop&w=2460&q=80');">
+  <div class="form-box">
+    <%= render 'form' %>
+  </div>
+  <%= link_to cocktails_path do %>
+  <div class="home-icon">
+    <i class="fas fa-home"></i>
+  </div>
+  <% end %>
+</div>

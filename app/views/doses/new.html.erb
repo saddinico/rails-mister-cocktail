@@ -1,12 +1,16 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description, error: 'description is mandatory, please specify one' %>
-  <%= f.association :ingredient, error: 'ingredient is mandatory, please specify one' %>
-  <%= f.submit 'add a dose'%>
-  <% if @dose.errors.any? %>
-    <ul>
-      <%  @dose.errors.full_messages.each do |error_message| %>
-      <li><%= error_message  %></li>
+
+
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description, error: 'description is mandatory, please specify one' %>
+        <%= f.association :ingredient, error: 'ingredient is mandatory, please specify one' %>
+        <%= f.submit 'add a dose'%>
+        <% if @dose.errors.any? %>
+          <ul>
+            <%  @dose.errors.full_messages.each do |error_message| %>
+            <li><%= error_message  %></li>
+            <% end %>
+          <% end %>
+          </ul>
       <% end %>
-    <% end %>
-    </ul>
-<% end %>
+

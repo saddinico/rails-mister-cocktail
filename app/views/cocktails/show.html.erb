@@ -1,5 +1,5 @@
 
-<div class="wrapper">
+
   <%= @cocktail.name %>
 
   <ul>
@@ -28,4 +28,4 @@
   <%= link_to 'delete cocktail', cocktail_path(@cocktail), method: :delete,
   data: { confirm: "Are you sure?" } %>
   <%= link_to 'back to main page', cocktails_path %>
-</div>
+
